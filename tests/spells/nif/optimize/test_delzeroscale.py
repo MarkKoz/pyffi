@@ -34,8 +34,7 @@ class TestDelZeroScaleOptimisationNif(BaseNifFileTestCase):
         """
 
         # check that zero scale nodes are gone
-        children = self.data.roots[0].children[0].children
+        children = [c for c in self.data.roots[0].children[0].children if c is not None]
         for child in children:
-            if child:
-                test_logger.debug("{0}, {1}".format(child.name, child.scale))
+            test_logger.debug("{0}, {1}".format(child.name, child.scale))
         assert len(children) == 2
