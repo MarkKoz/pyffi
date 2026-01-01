@@ -61,7 +61,7 @@ Parse all NIF files in a directory tree
 ...     except Exception:
 ...         print(
 ...             "Warning: read failed due corrupt file,"
-...             " corrupt format description, or bug.") # doctest: +REPORT_NDIFF
+...             " corrupt format description, or bug.")
 reading tests/spells/nif/files/invalid.nif
 Warning: read failed due corrupt file, corrupt format description, or bug.
 reading tests/spells/nif/files/nds.nif
@@ -173,7 +173,7 @@ Get list of versions and games
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 >>> for vnum in sorted(NifFormat.versions.values()):
-...     print('0x%08X' % vnum) # doctest: +REPORT_UDIFF
+...     print('0x%08X' % vnum)
 0x02030000
 0x03000000
 0x03000300
@@ -210,7 +210,7 @@ Get list of versions and games
 0x1E000002
 0x1E010003
 >>> for game, versions in sorted(NifFormat.games.items(), key=lambda x: x[0]):
-...     print("%s " % game + " ".join('0x%08X' % vnum for vnum in versions)) # doctest: +REPORT_UDIFF
+...     print("%s " % game + " ".join('0x%08X' % vnum for vnum in versions))
 ? 0x0A000103
 Atlantica 0x14020008
 Axis and Allies 0x0A010000
@@ -260,7 +260,7 @@ Reading an unsupported NIF file
 >>> stream = open(file, 'rb')
 >>> data = NifFormat.Data()
 >>> data.inspect(stream) # the file seems ok on inspection
->>> data.read(stream) # doctest: +ELLIPSIS
+>>> data.read(stream)
 Traceback (most recent call last):
     ...
 ValueError: ...
@@ -4144,7 +4144,7 @@ class NifFormat(FileFormat):
         (60, 2.5, 1.5)
         >>> list(block.get_short_data(60, 2, 2))
         [(-32767, -10922), (32767, 10922)]
-        >>> list(block.get_comp_data(60, 2, 2, 2.5, 1.5)) # doctest: +ELLIPSIS
+        >>> list(block.get_comp_data(60, 2, 2, 2.5, 1.5))
         [(1.0, 2.00...), (4.0, 2.99...)]
         """
         def _getData(self, offset, num_elements, element_size, controlpoints):
@@ -6127,7 +6127,7 @@ class NifFormat(FileFormat):
             [0, 2]
             >>> list(geomdata.get_triangle_indices([(0,0,0),(4,2,3)]))
             [None, 2]
-            >>> list(geomdata.get_triangle_indices([(0,3,4),(4,2,3)])) # doctest: +ELLIPSIS
+            >>> list(geomdata.get_triangle_indices([(0,3,4),(4,2,3)]))
             Traceback (most recent call last):
                 ...
             ValueError: ...
@@ -7107,10 +7107,10 @@ class NifFormat(FileFormat):
             abc
             >>> print(pal.get_string(4).decode("ascii"))
             def
-            >>> pal.get_string(5) # doctest: +ELLIPSIS
+            >>> pal.get_string(5)
             pyffi.nif.stringpalette:WARNING:StringPalette: no string starts at offset 5 (string is b'ef', preceeding character is b'd')
             b'ef'
-            >>> pal.get_string(100) # doctest: +ELLIPSIS
+            >>> pal.get_string(100)
             Traceback (most recent call last):
                 ...
             ValueError: ...

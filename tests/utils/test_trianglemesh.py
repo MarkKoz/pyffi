@@ -43,7 +43,7 @@ class TestEdge:
     def test_invalid_edge(self):
         """Raise exception on duplicate vert"""
         with pytest.raises(ValueError):
-            Edge(3, 3)  # doctest: +ELLIPSIS
+            Edge(3, 3) 
 
 
 class TestMesh:

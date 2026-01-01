@@ -35,7 +35,7 @@ Read a CGF file
 >>> data.read(stream)
 >>> # get all chunks
 >>> for chunk in data.chunks:
-...     print(chunk) # doctest: +ELLIPSIS
+...     print(chunk)
 <class '...SourceInfoChunk'> instance at ...
 * source_file : <None>
 * date : Fri Sep 28 22:40:44 2007
@@ -105,7 +105,7 @@ Create a CGF file from scratch
 >>> data.read(stream)
 >>> # get all chunks
 >>> for chunk in data.chunks:
-...     print(chunk) # doctest: +ELLIPSIS +REPORT_NDIFF
+...     print(chunk)
 <class 'pyffi.formats.cgf.NodeChunk'> instance at 0x...
 * name : hello
 * object : None
@@ -1944,7 +1944,7 @@ chunk size mismatch when reading %s at 0x%08X
             ...                   uvslist = [uvs1, uvs2],
             ...                   matlist = [2,5],
             ...                   colorslist = [colors1, colors_2])
-            >>> print(chunk) # doctest: +ELLIPSIS +REPORT_UDIFF
+            >>> print(chunk)
             <class 'pyffi.formats.cgf.MeshChunk'> instance at ...
             * has_vertex_weights : False
             * has_vertex_colors : True
@@ -2138,7 +2138,7 @@ chunk size mismatch when reading %s at 0x%08X
                 16: 0
                 etc...
             <BLANKLINE>
-            >>> print(chunk.mesh_subsets) # doctest: +ELLIPSIS
+            >>> print(chunk.mesh_subsets)
             <class 'pyffi.formats.cgf.MeshSubsetsChunk'> instance at ...
             * flags :
                 <class 'pyffi.formats.cgf.MeshSubsetsFlags'> instance at ...
@@ -2167,7 +2167,7 @@ chunk size mismatch when reading %s at 0x%08X
                 * radius : 0.7071067...
                 * center : [  0.500  0.500  1.000 ]
             <BLANKLINE>
-            >>> print(chunk.vertices_data) # doctest: +ELLIPSIS
+            >>> print(chunk.vertices_data)
             <class 'pyffi.formats.cgf.DataStreamChunk'> instance at ...
             * flags : 0
             * data_stream_type : VERTICES
@@ -2186,7 +2186,7 @@ chunk size mismatch when reading %s at 0x%08X
                 6: [  1.000  0.000  1.000 ]
                 7: [  1.000  1.000  1.000 ]
             <BLANKLINE>
-            >>> print(chunk.normals_data) # doctest: +ELLIPSIS
+            >>> print(chunk.normals_data)
             <class 'pyffi.formats.cgf.DataStreamChunk'> instance at ...
             * flags : 0
             * data_stream_type : NORMALS
@@ -2205,7 +2205,7 @@ chunk size mismatch when reading %s at 0x%08X
                 6: [  0.000  0.000  1.000 ]
                 7: [  0.000  0.000  1.000 ]
             <BLANKLINE>
-            >>> print(chunk.indices_data) # doctest: +ELLIPSIS
+            >>> print(chunk.indices_data)
             <class 'pyffi.formats.cgf.DataStreamChunk'> instance at ...
             * flags : 0
             * data_stream_type : INDICES
@@ -2228,7 +2228,7 @@ chunk size mismatch when reading %s at 0x%08X
                 10: 5
                 11: 7
             <BLANKLINE>
-            >>> print(chunk.uvs_data) # doctest: +ELLIPSIS
+            >>> print(chunk.uvs_data)
             <class 'pyffi.formats.cgf.DataStreamChunk'> instance at ...
             * flags : 0
             * data_stream_type : UVS
@@ -2263,7 +2263,7 @@ chunk size mismatch when reading %s at 0x%08X
                 * u : 1.0
                 * v : 0.0
             <BLANKLINE>
-            >>> print(chunk.tangents_data) # doctest: +ELLIPSIS
+            >>> print(chunk.tangents_data)
             <class 'pyffi.formats.cgf.DataStreamChunk'> instance at ...
             * flags : 0
             * data_stream_type : TANGENTS
@@ -2354,7 +2354,7 @@ chunk size mismatch when reading %s at 0x%08X
                 * z : 0
                 * w : 32767
             <BLANKLINE>
-            >>> print(chunk.colors_data) # doctest: +ELLIPSIS
+            >>> print(chunk.colors_data)
             <class 'pyffi.formats.cgf.DataStreamChunk'> instance at ...
             * flags : 0
             * data_stream_type : COLORS
