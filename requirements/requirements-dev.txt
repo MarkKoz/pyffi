@@ -4,4 +4,5 @@ pdbpp
 pyflakes
 pytest
 pytest-cov
+pytest-doctestplus
 wheel
