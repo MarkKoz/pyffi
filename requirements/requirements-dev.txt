@@ -1,5 +1,6 @@
 check-manifest
 coveralls
+nox
 pdbpp
 pyflakes
 pytest

@@ -63,6 +63,11 @@ they should. You can run them yourself with the following::
     source venv/bin/activate
     pytest
 
+To run tests for all Python versions, use nox::
+
+    source venv/bin/activate
+    nox
+
 Documentation
 -------------
 All our documentation is written in ReST and can be generated into HTML,
