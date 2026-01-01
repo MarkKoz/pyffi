@@ -487,7 +487,7 @@ class SpellScale(NifSpell):
     @classmethod
     def toastentry(cls, toaster):
         if not toaster.options["arg"]:
-            toaster.logger.warn(
+            toaster.logger.warning(
                 "must specify scale as argument (e.g. -a 10) "
                 "to apply spell")
             return False
@@ -730,7 +730,7 @@ class SpellFixFallout3StringOffsets(NifSpell):
             # use the first string palette as reference
             string_palette = branch.string_palette
             if not string_palette:
-                self.toaster.logger.warn("empty string palette, skipped")
+                self.toaster.logger.warning("empty string palette, skipped")
                 return False
             palette = string_palette.palette.palette
             b00_offset = palette.rfind(b'\x00')
@@ -824,7 +824,7 @@ class SpellFixBhkSubShapes(NifSpell):
                 (sub_shape.num_vertices
                  for sub_shape in branch.get_sub_shapes()), 0)
             if num_verts_in_sub_shapes != branch.data.num_vertices:
-                self.toaster.logger.warn(
+                self.toaster.logger.warning(
                     "bad subshape vertex count (expected %i, got %i)"
                     % (branch.data.num_vertices, num_verts_in_sub_shapes))
                 # remove or add vertices from subshapes (start with the last)
@@ -885,7 +885,7 @@ class SpellFixEmptySkeletonRoots(NifSpell):
         if isinstance(branch, NifFormat.NiSkinInstance):
             if not branch.skeleton_root:
                 if self.skeleton_root:
-                    self.toaster.logger.warn(
+                    self.toaster.logger.warning(
                         "fixed missing skeleton root")
                     branch.skeleton_root = self.skeleton_root
                     self.changed = True

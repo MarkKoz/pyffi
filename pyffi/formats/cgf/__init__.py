@@ -426,7 +426,7 @@ class CgfFormat(pyffi.object_models.xml.FileFormat, metaclass=_MetaCgfFormat):
             except KeyError:
                 # make this raise an exception when all reference errors
                 # are sorted out
-                logger.warn("invalid chunk reference (%i)" % block_index)
+                logger.warning("invalid chunk reference (%i)" % block_index)
                 self._value = None
                 return
             if not isinstance(block, self._template):
@@ -437,7 +437,7 @@ class CgfFormat(pyffi.object_models.xml.FileFormat, metaclass=_MetaCgfFormat):
                 else:
                     # make this raise an exception when all reference errors
                     # are sorted out
-                    logger.warn("""\
+                    logger.warning("""\
 expected instance of %s
 but got instance of %s""" % (self._template, block.__class__))
             self._value = block
@@ -850,7 +850,7 @@ actual bytes read is %i, get_size yields %i (expected %i bytes)"""
                         size += padlen
                     # check size
                     if size != chunk_sizes[chunknum]:
-                        logger.warn("""\
+                        logger.warning("""\
 chunk size mismatch when reading %s at 0x%08X
 %i bytes available, but actual bytes read is %i"""
                                     % (chunk.__class__.__name__,
