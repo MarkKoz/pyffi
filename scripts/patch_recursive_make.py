@@ -45,30 +45,30 @@ import os
 import os.path
 import subprocess
 
-# configuration options
 
-parser = argparse.ArgumentParser(
-    description=__doc__,
-    epilog=
-    "All additional arguments are passed to the patch command CMD.")
-parser.add_argument(
-    'patch_cmd', metavar="CMD", type=str,
-    help="use CMD to make a patch between files; this command must "
-    "accept at least 3 arguments: 'CMD oldfile newfile patchfile ...'")
-parser.add_argument(
-    'in_folder', type=str,
-    help="folder containing original files")
-parser.add_argument(
-    'out_folder', type=str,
-    help="folder containing updated files")
-parser.add_argument(
-    'patch_folder', type=str,
-    help="folder where patch files will be stored (should be empty)")
-args, unknown_args = parser.parse_known_args()
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        epilog=
+        "All additional arguments are passed to the patch command CMD.")
+    parser.add_argument(
+        'patch_cmd', metavar="CMD", type=str,
+        help="use CMD to make a patch between files; this command must "
+        "accept at least 3 arguments: 'CMD oldfile newfile patchfile ...'")
+    parser.add_argument(
+        'in_folder', type=str,
+        help="folder containing original files")
+    parser.add_argument(
+        'out_folder', type=str,
+        help="folder containing updated files")
+    parser.add_argument(
+        'patch_folder', type=str,
+        help="folder where patch files will be stored (should be empty)")
 
-# actual script
+    return parser.parse_known_args()
 
-def patch_cmd(in_file, out_file, patch_file):
+
+def patch_cmd(in_file, out_file, patch_file, args, unknown_args):
     # in_file must exist by construction of the script
     if not os.path.exists(in_file):
         raise RuntimeError("in file %s not found; bug?")
@@ -85,10 +85,18 @@ def patch_cmd(in_file, out_file, patch_file):
         print("skipped %s (no out file)" % in_file)
         return
 
-for dirpath, dirnames, filenames in os.walk(args.in_folder):
-    for filename in filenames:
-        in_file = os.path.join(dirpath, filename)
-        out_file = in_file.replace(args.in_folder, args.out_folder, 1)
-        patch_file = in_file.replace(args.in_folder, args.patch_folder, 1)
-        patch_file += ".patch"
-        patch_cmd(in_file, out_file, patch_file)
+
+def main():
+    args, unknown_args = parse_args()
+
+    for dirpath, dirnames, filenames in os.walk(args.in_folder):
+        for filename in filenames:
+            in_file = os.path.join(dirpath, filename)
+            out_file = in_file.replace(args.in_folder, args.out_folder, 1)
+            patch_file = in_file.replace(args.in_folder, args.patch_folder, 1)
+            patch_file += ".patch"
+            patch_cmd(in_file, out_file, patch_file, args, unknown_args)
+
+
+if __name__ == "__main__":
+    main()

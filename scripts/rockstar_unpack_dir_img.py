@@ -66,22 +66,22 @@ from optparse import OptionParser
 
 from pyffi.formats.rockstar.dir_ import DirFormat
 
-# configuration options
 
-parser = OptionParser(
-    usage=
-    "Usage: %prog source_folder destination_folder\n\n"
-    + __doc__
+def parse_args():
+    parser = OptionParser(
+        usage=
+        "Usage: %prog source_folder destination_folder\n\n"
+        + __doc__
     )
-(options, args) = parser.parse_args()
-if len(args) != 2:
-    parser.print_help()
-    exit()
-in_folder, unpack_folder = args
+    (options, args) = parser.parse_args()
+    if len(args) != 2:
+        parser.print_help()
+        exit()
 
-# actual script
+    return args
 
-def unpack(arcroot):
+
+def unpack(arcroot, in_folder, unpack_folder):
     dirdata = DirFormat.Data()
     with open(os.path.join(in_folder, arcroot) + '.dir', 'rb') as dirfile:
         dirdata.read(dirfile)
@@ -91,7 +91,15 @@ def unpack(arcroot):
     with open(os.path.join(in_folder, arcroot) + '.img', 'rb') as imgfile:
         dirdata.unpack(imgfile, folder)
 
-for arcname in os.listdir(in_folder):
-    if (arcname.endswith('.dir')
-        and os.path.isfile(os.path.join(in_folder, arcname))):
-        unpack(arcname[:-4])
+
+def main():
+    in_folder, unpack_folder = parse_args()
+
+    for arcname in os.listdir(in_folder):
+        if (arcname.endswith('.dir')
+            and os.path.isfile(os.path.join(in_folder, arcname))):
+            unpack(arcname[:-4], in_folder, unpack_folder)
+
+
+if __name__ == "__main__":
+    main()

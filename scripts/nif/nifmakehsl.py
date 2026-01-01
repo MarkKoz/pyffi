@@ -222,7 +222,8 @@ def write_struct(cls, ver, hsl_types, f, template):
     # close the structure
     f.write('};\n\n')
 
-if __name__ == '__main__':
+
+def main():
     # list all types used as a template
     templates = find_templates()
     # write out hex structure library for each nif version
@@ -232,3 +233,7 @@ if __name__ == '__main__':
             write_hsl(f, ver, templates)
         finally:
             f.close()
+
+
+if __name__ == '__main__':
+    main()

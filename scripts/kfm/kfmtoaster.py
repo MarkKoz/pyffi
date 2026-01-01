@@ -61,9 +61,7 @@ class KfmToaster(pyffi.spells.kfm.KfmToaster):
     python kfmtoaster.py check_read ."""
 
 
-# if script is called...
-if __name__ == "__main__":
-    # set up logger
+def main():
     logger = logging.getLogger("pyffi")
     logger.setLevel(logging.DEBUG)
     loghandler = logging.StreamHandler(sys.stdout)
@@ -71,5 +69,9 @@ if __name__ == "__main__":
     logformatter = logging.Formatter("%(name)s:%(levelname)s:%(message)s")
     loghandler.setFormatter(logformatter)
     logger.addHandler(loghandler)
-    # call toaster
+
     KfmToaster().cli()
+
+
+if __name__ == "__main__":
+    main()

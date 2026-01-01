@@ -76,9 +76,8 @@ class CgfToaster(pyffi.spells.cgf.CgfToaster):
 
     python -m cProfile -s cumulative cgftoaster.py -j 1 dump"""
 
-# if script is called...
-if __name__ == "__main__":
-    # set up logger
+
+def main():
     logger = logging.getLogger("pyffi")
     logger.setLevel(logging.DEBUG)
     loghandler = logging.StreamHandler(sys.stdout)
@@ -86,5 +85,9 @@ if __name__ == "__main__":
     logformatter = logging.Formatter("%(name)s:%(levelname)s:%(message)s")
     loghandler.setFormatter(logformatter)
     logger.addHandler(loghandler)
-    # call toaster
+
     CgfToaster().cli()
+
+
+if __name__ == "__main__":
+    main()

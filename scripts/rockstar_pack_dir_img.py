@@ -66,22 +66,22 @@ from optparse import OptionParser
 
 from pyffi.formats.rockstar.dir_ import DirFormat
 
-# configuration options
 
-parser = OptionParser(
-    usage=
-    "Usage: %prog source_folder destination_folder\n\n"
-    + __doc__
+def parse_args():
+    parser = OptionParser(
+        usage=
+        "Usage: %prog source_folder destination_folder\n\n"
+        + __doc__
     )
-(options, args) = parser.parse_args()
-if len(args) != 2:
-    parser.print_help()
-    exit()
-unpack_folder, out_folder = args
+    (options, args) = parser.parse_args()
+    if len(args) != 2:
+        parser.print_help()
+        exit()
 
-# actual script
+    return args
 
-def pack(arcroot):
+
+def pack(arcroot, unpack_folder, out_folder):
     folder = os.path.join(unpack_folder, arcroot)
     print("packing from %s" % folder)
     dirdata = DirFormat.Data(folder=folder)
@@ -90,6 +90,14 @@ def pack(arcroot):
     with open(os.path.join(out_folder, arcroot) + '.img', 'wb') as imgfile:
         dirdata.pack(imgfile, folder)
 
-for arcname in os.listdir(unpack_folder):
-    if os.path.isdir(os.path.join(unpack_folder, arcname)):
-        pack(arcname)
+
+def main():
+    unpack_folder, out_folder = parse_args()
+
+    for arcname in os.listdir(unpack_folder):
+        if os.path.isdir(os.path.join(unpack_folder, arcname)):
+            pack(arcname, unpack_folder, out_folder)
+
+
+if __name__ == "__main__":
+    main()

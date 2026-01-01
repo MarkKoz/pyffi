@@ -81,8 +81,8 @@ def main():
     mainwindow.show()
     sys.exit(app.exec_())
 
-if __name__ == "__main__":
-    # set up logger
+
+def main2():
     logger = logging.getLogger("pyffi")
     logger.setLevel(logging.DEBUG)
     loghandler = logging.StreamHandler()
@@ -90,5 +90,8 @@ if __name__ == "__main__":
     logformatter = logging.Formatter("%(name)s:%(levelname)s:%(message)s")
     loghandler.setFormatter(logformatter)
     logger.addHandler(loghandler)
-    # run main program
     main()
+
+
+if __name__ == "__main__":
+    main2()
