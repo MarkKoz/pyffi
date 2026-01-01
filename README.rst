@@ -61,12 +61,7 @@ We love tests, they help guarantee that things keep working they way
 they should. You can run them yourself with the following::
 
     source venv/bin/activate
-    nosetest -v test
-
-or::
-
-    source venv/bin/activate
-    py.test -v tests
+    pytest
 
 Documentation
 -------------
