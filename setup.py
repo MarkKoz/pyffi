@@ -3,8 +3,8 @@
 import os
 import sys
 
-if sys.version_info < (3, 3):
-    raise RuntimeError("PyFFI requires Python 3.3 or higher.")
+if sys.version_info < (3, 10):
+    raise RuntimeError("PyFFI requires Python 3.10 or higher.")
 
 NAME = "PyFFI"
 with open("pyffi/VERSION", "rt") as f:
@@ -17,9 +17,11 @@ CLASSIFIERS = [
     'Intended Audience :: End Users/Desktop',
     'Topic :: Multimedia :: Graphics :: 3D Modeling',
     'Programming Language :: Python',
-    'Programming Language :: Python :: 3.5',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: 3.14',
     'Operating System :: OS Independent']
 
 try:
