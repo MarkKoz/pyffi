@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 r"""Make hex structure libraries for all nif versions.
 

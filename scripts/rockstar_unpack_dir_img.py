@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 r"""An unpack tool for rockstar .dir/.img files.
 

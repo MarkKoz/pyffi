@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """A tool to apply binary patches between folders recursively."""
 

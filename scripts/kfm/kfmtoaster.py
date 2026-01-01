@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """A script for casting spells on kfm files. This script essentially
 sets up the logger and calls :meth:`pyffi.spells.kfm.KfmToaster.cli`.

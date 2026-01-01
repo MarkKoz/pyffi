@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """A script for casting spells on cgf files. This script is essentially
 a cgf specific wrapper around L{pyffi.spells.toaster}."""
