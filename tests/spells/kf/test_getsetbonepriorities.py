@@ -19,19 +19,11 @@ input_files = os.path.join(test_root, 'spells', 'kf').replace("\\", "/")
 
 class TestGetSetBonePrioritiesOblivion:
 
-    out = None
     file_name = "test_controllersequence.kf"
     txt_name = "test_controllersequence_bonepriorities.txt"
-
-    def setup(self):
-        self.out = tempfile.mkdtemp()
-        self.kffile = os.path.join(test_root, self.file_name)
-        self.kffile2 = os.path.join(test_root, "_" + self.file_name)
-        self.txtfile = os.path.join(test_root, self.txt_name)
-
-
-    def teardown(self):
-        shutil.rmtree(self.out)
+    kffile = os.path.join(test_root, file_name)
+    kffile2 = os.path.join(test_root, "_" + file_name)
+    txtfile = os.path.join(test_root, txt_name)
 
     @staticmethod
     def check_priorities(filename, priorities):
