@@ -1,4 +1,4 @@
-"""
+r"""
 :mod:`pyffi.spells` --- High level file operations
 ==================================================
 
@@ -404,13 +404,13 @@ class Spell(object):
 
 
 class SpellGroupBase(Spell):
-    """Base class for grouping spells. This implements all the spell grouping
+    r"""Base class for grouping spells. This implements all the spell grouping
     functions that fall outside of the actual recursing (:meth:`__init__`,
     :meth:`toastentry`, :meth:`_datainspect`, :meth:`datainspect`, and :meth:`toastexit`).
     """
 
     SPELLCLASSES = []
-    """List of :class:`Spell`\ s of this group (not instantiated)."""
+    r"""List of :class:`Spell`\ s of this group (not instantiated)."""
 
     ACTIVESPELLCLASSES = []
     """List of active spells of this group (not instantiated).
@@ -1361,7 +1361,7 @@ class Toaster(object):
             self.msgblockend()
 
     def get_toast_head_root_ext(self, filename):
-        """Get the name of where the input file *filename* would
+        r"""Get the name of where the input file *filename* would
         be written to by the toaster: head, root, and extension.
 
         :param filename: The name of the hypothetical file to be

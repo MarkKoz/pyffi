@@ -96,7 +96,7 @@ class MetaFileFormat(type):
 
     @staticmethod
     def openfile(filename, filepaths=None, encoding=None):
-        """Find *filename* in given *filepaths*, and open it. Raises
+        r"""Find *filename* in given *filepaths*, and open it. Raises
         ``IOError`` if file cannot be opened.
 
         :param filename: The file to open.
@@ -149,19 +149,19 @@ class FileFormat(object):
 
     # precompiled regular expressions, used in name_parts
 
-    _RE_NAME_SEP = re.compile('[_\W]+')
+    _RE_NAME_SEP = re.compile(r'[_\W]+')
     """Matches seperators for splitting names."""
     
-    _RE_NAME_DIGITS = re.compile('([0-9]+)|([a-zA-Z]+)')
+    _RE_NAME_DIGITS = re.compile(r'([0-9]+)|([a-zA-Z]+)')
     """Matches digits or characters for splitting names."""
 
-    _RE_NAME_CAMEL = re.compile('([A-Z][a-z]*)|([a-z]+)')
+    _RE_NAME_CAMEL = re.compile(r'([A-Z][a-z]*)|([a-z]+)')
     """Finds components of camelCase and CamelCase names."""
 
-    _RE_NAME_LC = re.compile('[a-z]')
+    _RE_NAME_LC = re.compile(r'[a-z]')
     """Matches a lower case character."""
 
-    _RE_NAME_UC = re.compile('[A-Z]')
+    _RE_NAME_UC = re.compile(r'[A-Z]')
     """Matches an upper case character."""
 
     # override this with the data instance for this format
