@@ -92,7 +92,8 @@ reading tests/spells/nif/files/test_opt_collision_to_boxshape.nif
 reading tests/spells/nif/files/test_opt_collision_to_boxshape_notabox.nif
 reading tests/spells/nif/files/test_opt_collision_unpacked.nif
 reading tests/spells/nif/files/test_opt_delunusedbones.nif
-
+reading tests/spells/nif/files/test_opt_dupgeomdata.nif
+Warning: read failed due corrupt file, corrupt format description, or bug.
 reading tests/spells/nif/files/test_opt_dupverts.nif
 reading tests/spells/nif/files/test_opt_emptyproperties.nif
 reading tests/spells/nif/files/test_opt_grid_layout.nif
