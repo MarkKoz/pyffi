@@ -48,7 +48,9 @@
 #
 # ***** END LICENSE BLOCK *****
 
-import os
+from importlib import metadata
 
-with open(os.path.join(os.path.dirname(__file__), "VERSION"), "rt") as f:
-    __version__ = f.read().strip()
+try:
+    __version__ = metadata.version("pyffi")
+except metadata.PackageNotFoundError:  # pragma: no cover
+    __version__ = "0.0.0+unknown"

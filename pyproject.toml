@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PyFFI"
+version = "2.2.4.dev4"
+description = "Processing block structured binary files."
+readme = "README.rst"
+license = "BSD-3-Clause"
+license-files = ["LICENSE.rst"]
+authors = [{name = "Niftools Developers", email = "info@niftools.org"}]
+
+keywords = ["fileformat", "nif", "cgf", "binary", "interface", "stripify"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+]
+
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+# qskope = ["PyQt4"]
+
+[dependency-groups]
+dev = [
+    "nox>=2025.11.12",
+    "pytest>=9",
+    "pytest-cov>=7",
+    "pytest-doctestplus>=1.6"
+]
+doc = [
+    "sphinx>=2.0.0",
+    "niftools_sphinx_theme>=0.3.3"
+]
+
+[project.scripts]
+cgftoaster = "scripts.cgf.cgftoaster:main"
+kfmtoaster = "scripts.kfm.kfmtoaster:main"
+nifmakehsl = "scripts.nif.nifmakehsl:main"
+niftoaster = "scripts.nif.niftoaster:main"
+patch_recursive_apply = "scripts.patch_recursive_apply:main"
+patch_recursive_make = "scripts.patch_recursive_make:main"
+qskope = "scripts.qskope:main"
+rockstar_pack_dir_img = "scripts.rockstar_pack_dir_img:main"
+rockstar_unpack_dir_img = "scripts.rockstar_unpack_dir_img:main"
+
+[project.urls]
+changelog = "https://www.niftools.org/pyffi/changes.html"
+documentation = "https://www.niftools.org/pyffi/"
+download = "https://github.com/niftools/pyffi/releases"
+issues = "https://github.com/niftools/pyffi/issues"
+source = "https://github.com/niftools/pyffi"
+
+[tool.coverage.run]
+branch = true
+source = ["pyffi", "scripts"]
+
+[tool.pytest]
+minversion = "9.0"
+addopts = [
+    "--verbose",
+    "--import-mode=importlib",
+    "--ignore=tests/perf",
+    "--ignore=pyffi/formats/cgf",
+    "--ignore=pyffi/formats/dae",
+    "--ignore=pyffi/formats/esp",
+    "--ignore=pyffi/object_models/xsd",
+    "--ignore=pyffi/qskope",
+    "--cov=pyffi",
+    "--cov=scripts",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+]
+testpaths = ["pyffi", "tests"]
+log_file = "tests/pytest.log"
+doctest_optionflags = ["ELLIPSIS", "NORMALIZE_WHITESPACE", "REPORT_NDIFF"]
+doctest_plus = "enabled"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyffi*", "scripts*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.xml", "*.xsd", "*.dll", "*.exe"]
+"pyffi.formats.nif" = ["nifxml/nif.xml"]
+"pyffi.formats.kfm" = ["kfmxml/kfm.xml"]

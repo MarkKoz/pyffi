@@ -6,7 +6,6 @@ include AUTHORS.rst
 include TODO.rst
 include THANKS.rst
 include CONTRIBUTING.rst
-include pyffi/VERSION
 include pyffi/formats/nif/nifxml/nif.xml
 include pyffi/formats/kfm/kfmxml/kfm.xml
 include pyffi/formats/cgf/cgf.xml

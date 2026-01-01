@@ -1,9 +1,0 @@
-check-manifest
-coveralls
-nox
-pdbpp
-pyflakes
-pytest
-pytest-cov
-pytest-doctestplus
-wheel
