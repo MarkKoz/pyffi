@@ -31,9 +31,9 @@ class TestBitStruct(unittest.TestCase):
     def test_attributes(self):
         self.y.populate_attribute_values(13, None)
         assert len(self.y._names) == 2
-        assert self.y._names, ('a' == 'b')
-        assert self.y._a_value_ == 5
-        assert self.y._b_value_ == 5
+        assert self.y._names == ['a', 'b']
+        assert self.y._a_value_.get_value() == 5
+        assert self.y._b_value_.get_value() == 1
 
     def test_get_value(self):
         self.y.a = 5
