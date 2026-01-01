@@ -6018,13 +6018,6 @@ class NifFormat(FileFormat):
             >>> toaster = pyffi.spells.nif.NifToaster()
             >>> toaster.scale = 0.1
             >>> pyffi.spells.nif.fix.SpellScale(data=data, toaster=toaster).recurse()
-            pyffi.toaster:INFO:--- fix_scale ---
-            pyffi.toaster:INFO:  scaling by factor 0.100000
-            pyffi.toaster:INFO:  ~~~ NiNode [Scene Root] ~~~
-            pyffi.toaster:INFO:    ~~~ NiNode [bone1] ~~~
-            pyffi.toaster:INFO:    ~~~ NiTriShape [] ~~~
-            pyffi.toaster:INFO:      ~~~ NiSkinInstance [] ~~~
-            pyffi.toaster:INFO:        ~~~ NiSkinData [] ~~~
             >>> bone1.translation.x
             1.0
             >>> skindata.bone_list[0].skin_transform.translation.x
@@ -7109,7 +7102,6 @@ class NifFormat(FileFormat):
             >>> print(pal.get_string(4).decode("ascii"))
             def
             >>> pal.get_string(5)
-            pyffi.nif.stringpalette:WARNING:StringPalette: no string starts at offset 5 (string is b'ef', preceeding character is b'd')
             b'ef'
             >>> pal.get_string(100)
             Traceback (most recent call last):

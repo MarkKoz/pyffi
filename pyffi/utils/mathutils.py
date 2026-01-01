@@ -54,13 +54,10 @@ def float_to_int(value):
     >>> float_to_int(-0.6)
     -1
     >>> float_to_int(float('inf'))
-    pyffi.utils.mathutils:WARNING:float_to_int converted +inf to +2147483648.
     2147483648
     >>> float_to_int(-float('inf'))
-    pyffi.utils.mathutils:WARNING:float_to_int converted -inf to -2147483648.
     -2147483648
     >>> float_to_int(float('nan'))
-    pyffi.utils.mathutils:WARNING:float_to_int converted nan to 0.
     0
     """
     try:

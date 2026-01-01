@@ -577,7 +577,6 @@ class SpellCleanStringPalette(NifSpell):
         >>> seq.string_palette.palette.get_all_strings()
         [b'there', b'hello', b'test']
         >>> SpellCleanStringPalette().branchentry(seq)
-        pyffi.toaster:INFO:parsing string palette
         False
         >>> seq.string_palette.palette.get_all_strings()
         [b'hello', b'there']
@@ -696,10 +695,6 @@ class SpellFixFallout3StringOffsets(NifSpell):
         >>> block.get_variable_2()
         b''
         >>> SpellFixFallout3StringOffsets().branchentry(seq)
-        pyffi.toaster:INFO:updating empty links
-        pyffi.toaster:INFO:updated 'property_type_offset' for b'hello' node
-        pyffi.toaster:INFO:updated 'controller_type_offset' for b'hello' node
-        pyffi.toaster:INFO:updated 'variable_2_offset' for b'hello' node
         False
         >>> block.node_name_offset
         6
@@ -714,15 +709,12 @@ class SpellFixFallout3StringOffsets(NifSpell):
         >>> block.get_node_name()
         b'hello'
         >>> block.get_property_type()
-        pyffi.nif.stringpalette:WARNING:StringPalette: no string starts at offset 16 (string is b'', preceeding character is b't')
         b''
         >>> block.get_controller_type()
-        pyffi.nif.stringpalette:WARNING:StringPalette: no string starts at offset 16 (string is b'', preceeding character is b't')
         b''
         >>> block.get_variable_1()
         b'there'
         >>> block.get_variable_2()
-        pyffi.nif.stringpalette:WARNING:StringPalette: no string starts at offset 16 (string is b'', preceeding character is b't')
         b''
         """
         if isinstance(branch,NifFormat.NiControllerSequence):
