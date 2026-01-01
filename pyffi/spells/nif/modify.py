@@ -132,7 +132,6 @@ import pyffi.spells.nif.check # recycle checking spells for update spells
 import pyffi.spells.nif.fix
 
 
-import codecs
 import os
 import re
 
@@ -964,7 +963,7 @@ class SpellGetBonePriorities(NifSpell):
         filename, ext = os.path.splitext(self.stream.name)
         filename = filename + "_bonepriorities.txt"
         self.toaster.msg("writing %s" % filename)
-        with codecs.open(filename, "wb", encoding="ascii") as stream:
+        with open(filename, "w", encoding="ascii", newline="") as stream:
             for sequence, bonepriorities in self.bonepriorities.items():
                 print("[%s]" % sequence, file=stream, end="\r\n")
                 for name, priority in sorted(bonepriorities.items(),
@@ -989,7 +988,7 @@ class SpellSetBonePriorities(NifSpell):
         filename = filename + "_bonepriorities.txt"
         if os.path.exists(filename):
             self.toaster.msg("reading %s" % filename)
-            with codecs.open(filename, "rb", encoding="ascii") as stream:
+            with open(filename, "r", encoding="ascii", newline="") as stream:
                 self.bonepriorities = {} # priorities for all sequences
                 sequence = "" # current sequence
                 bonepriorities = {} # priorities for current sequence

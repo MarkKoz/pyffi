@@ -74,7 +74,6 @@ contained in a file whose format is described in a particular way
 #
 # ***** END LICENSE BLOCK *****
 
-import codecs
 import logging
 import os.path # os.path.altsep
 import re # compile
@@ -104,21 +103,14 @@ class MetaFileFormat(type):
         :param filepaths: List of paths where to look for the file.
         :type filepaths: ``list`` of ``str``\ s
         """
-
-        def open_with_encoding(fn):
-            if encoding is None:
-                return open(fn)
-            else:
-                return codecs.open(fn, encoding=encoding)
-
         if not filepaths:
-            return open_with_encoding(filename)
+            return open(filename, encoding=encoding, newline="")
         else:
             for filepath in filepaths:
                 if not filepath:
                     continue
                 try:
-                    return open_with_encoding(os.path.join(filepath, filename))
+                    return open(os.path.join(filepath, filename), encoding=encoding, newline="")
                 except IOError:
                     continue
                 break
