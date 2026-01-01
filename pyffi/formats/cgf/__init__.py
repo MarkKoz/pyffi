@@ -21,7 +21,7 @@ Read a CGF file
 >>> for i in range(4): #recurse up to root repo dir
 ...     dirpath = dirname(dirpath)
 >>> repo_root = dirpath
->>> format_root = os.path.join(repo_root, 'tests', 'formats', 'cgf')
+>>> format_root = os.path.join(repo_root, 'tests', 'spells', 'cgf', 'files')
 >>> stream = open(os.path.join(format_root, 'test.cgf'), 'rb')
 >>> data = CgfFormat.Data()
 >>> # read chunk table only
@@ -69,14 +69,14 @@ Parse all CGF files in a directory tree
 ...     # do something with the chunks
 ...     for chunk in data.chunks:
 ...         chunk.apply_scale(2.0)
-reading tests/formats/cgf/invalid.cgf
+reading spells/cgf/files/invalid.cgf
 Warning: read failed due corrupt file, corrupt format description, or bug.
 0
-reading tests/formats/cgf/monkey.cgf
+reading spells/cgf/files/monkey.cgf
 14
-reading tests/formats/cgf/test.cgf
+reading spells/cgf/files/test.cgf
 2
-reading tests/formats/cgf/vcols.cgf
+reading spells/cgf/files/vcols.cgf
 6
 
 Create a CGF file from scratch
